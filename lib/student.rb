@@ -1,5 +1,7 @@
+require_relative './final_grade.rb'
+
 class Student
-  attr_reader :first_name, :last_name, :assignment_grades
+  attr_reader :first_name, :last_name, :assignment_grades, :final_grade
 
   # @param [String] first_name - student's first name
   # @param [String] last_name - student's last name
@@ -9,5 +11,6 @@ class Student
     @first_name        = first_name
     @last_name         = last_name
     @assignment_grades = grades
+    @final_grade = FinalGrade.new(self)
   end
 end

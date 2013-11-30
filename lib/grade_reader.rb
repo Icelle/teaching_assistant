@@ -25,10 +25,4 @@ class GradeReader
     end
     grade_book
   end
-
-  def print_grades
-    @grade_book.each do |student|
-      puts "#{student.first_name} #{student.last_name}: #{student.assignment_grades.map {|assignment_grade| assignment_grade.grade}.join(",")}"
-    end
-  end
 end
