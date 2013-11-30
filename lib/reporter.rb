@@ -14,4 +14,10 @@ class Reporter
       puts "#{student.first_name} #{student.last_name}: #{student.final_grade.number_grade}"
     end
   end
+
+  def print_final_letter_grade
+    @students.each do |student|
+      puts "#{student.first_name} #{student.last_name}: #{student.final_grade.letter_grade}"
+    end
+  end
 end
