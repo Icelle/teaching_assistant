@@ -1,5 +1,6 @@
 require_relative './student.rb'
 require 'csv'
+require_relative './assignment_grade.rb'
 
 class GradeReader
   attr_reader :grade_book
@@ -18,7 +19,7 @@ class GradeReader
       names      = row[0].split
       first_name = names[0]
       last_name  = names[1]
-      grades     = row[1..-1]
+      grades     = row[1..-1].map {|grade| AssignmentGrade.new(grade)}
       student    = Student.new(first_name, last_name, grades)
       grade_book << student
     end
@@ -27,7 +28,7 @@ class GradeReader
 
   def print_grades
     @grade_book.each do |student|
-      puts "#{student.first_name} #{student.last_name}: #{student.grades.join(",")}"
+      puts "#{student.first_name} #{student.last_name}: #{student.assignment_grades.map {|assignment_grade| assignment_grade.grade}.join(",")}"
     end
   end
 end
