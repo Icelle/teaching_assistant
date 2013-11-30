@@ -9,7 +9,7 @@ class FinalGrade
 
   # @param [Student] student - you need to pass in student so you can get access to student and call the grades
   def set_number_grade(student)
-    student.assignment_grades.map {|assignment_grade| assignment_grade.grade}.reduce(:+).to_f/student.assignment_grades.size
+    (student.assignment_grades.map {|assignment_grade| assignment_grade.grade}.reduce(:+).to_f/student.assignment_grades.size).round(1)
   end
 
   def set_letter_grade
