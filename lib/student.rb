@@ -12,7 +12,7 @@ class Student
     @first_name        = first_name
     @last_name         = last_name
     @assignment_grades = grades
-    @final_grade = FinalGrade.new(self)
+    @final_grade       = FinalGrade.new(self)
   end
 
   def <=>(student2)
